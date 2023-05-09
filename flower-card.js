@@ -247,56 +247,13 @@ customElements.whenDefined("card-tools").then(() => {
       const battery = () => {
         if (battery_sensor) {
           if (this._hass.states[battery_sensor]) {
-            var value = this._hass.states[battery_sensor].state + '%';
-            switch (true) {
-              case this._hass.states[battery_sensor].state > 90:
-                var icon = "mdi:battery";
-                var battery_color = "green";
-                break;
-              case this._hass.states[battery_sensor].state > 80:
-                var icon = "mdi:battery-90";
-                var battery_color = "green";
-                break;
-              case this._hass.states[battery_sensor].state > 70:
-                var icon = "mdi:battery-80";
-                var battery_color = "green";
-                break;
-              case this._hass.states[battery_sensor].state > 60:
-                var icon = "mdi:battery-70";
-                var battery_color = "green";
-                break;
-              case this._hass.states[battery_sensor].state > 50:
-                var icon = "mdi:battery-60";
-                var battery_color = "green";
-                break;
-              case this._hass.states[battery_sensor].state > 40:
-                var icon = "mdi:battery-50";
-                var battery_color = "green";
-                break;
-              case this._hass.states[battery_sensor].state > 30:
-                var icon = "mdi:battery-40";
-                var battery_color = "orange";
-                break;
-              case this._hass.states[battery_sensor].state > 20:
-                var icon = "mdi:battery-30";
-                var battery_color = "orange";
-                break;
-              case this._hass.states[battery_sensor].state > 10:
-                var icon = "mdi:battery-20";
-                var battery_color = "red";
-                break;
-              case this._hass.states[battery_sensor].state == 0:
-                var icon = "mdi:battery-alert-variant-outline";
-                var battery_color = "red";
-                break;
-              case this._hass.states[battery_sensor].state == 'unavailable':
-                var icon = "mdi:battery-off-outline";
-                var battery_color = "rgba(158,158,158,1)";
-                var value =  this._hass.localize('state.default.unavailable');
-                break;
-              default:
-                var icon = "mdi:battery-10";
-                var battery_color = "red";
+            if (this._hass.states[battery_sensor].state == "off") {
+              // Off indicates a battery level OK.
+              var icon = "mdi:battery";
+              var battery_color = "green";
+            } else {
+              var icon = "mdi:battery-20";
+              var battery_color = "red";
             }
           } else {
             var icon = "mdi:battery-off-outline";
