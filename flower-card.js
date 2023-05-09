@@ -251,9 +251,11 @@ customElements.whenDefined("card-tools").then(() => {
               // Off indicates a battery level OK.
               var icon = "mdi:battery";
               var battery_color = "green";
+              var value = "normal";
             } else {
               var icon = "mdi:battery-20";
               var battery_color = "red";
+              var value = "low";
             }
           } else {
             var icon = "mdi:battery-off-outline";
