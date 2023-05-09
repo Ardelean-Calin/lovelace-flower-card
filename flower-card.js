@@ -189,7 +189,7 @@ customElements.whenDefined("card-tools").then(() => {
           if (result[elem]) {
             limits["max_" + elem] = result[elem].max;
             limits["min_" + elem] = result[elem].min;
-            curr[elem] = result[elem].current.toFixed(1);
+            curr[elem] = result[elem].current;
             icons[elem] = result[elem].icon;
             sensors[elem] = result[elem].sensor;
             uomt[elem] = result[elem].unit_of_measurement;
