@@ -208,7 +208,7 @@ customElements.whenDefined("card-tools").then(() => {
         const unit = uom[attr];
         const unitTooltip = uomt[attr];
         const icon = icons[attr] || "mdi:help-circle-outline";
-        var val = parseFloat(curr[attr].toFixed(1));
+        var val = parseFloat(curr[attr]);
         if (isNaN(val)) {
           var aval = false;
           var pct = 0;
